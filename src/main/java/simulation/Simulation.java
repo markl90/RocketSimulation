@@ -64,6 +64,11 @@ public class Simulation {
 
         }
         System.out.println(U1Rockets.size()+ " total "+ U1.class + " rockets to carry payload.");
+        Item rocketLoad = new Item();
+        rocketLoad.setWeight(itemWeight / U1Rockets.size());
+        for (Rocket rocket: U1Rockets){
+            rocket.carry(rocketLoad);
+        }
         return U1Rockets;
     }
 
@@ -86,6 +91,11 @@ public class Simulation {
 
         }
         System.out.println(U2Rockets.size()+ " total "+ U2.class + " rockets to carry payload.");
+        Item rocketLoad = new Item();
+        rocketLoad.setWeight(itemWeight / U2Rockets.size());
+        for (Rocket rocket: U2Rockets){
+            rocket.carry(rocketLoad);
+        }
         return U2Rockets;
     }
 
@@ -109,7 +119,7 @@ public class Simulation {
         else {
             NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
 
-            System.out.println("rocket.Rocket " + type.getClass());
+            System.out.println("rocket " + type.getClass());
             System.out.println("crashes:" + crashes);
             System.out.println("Total launches " + totalLaunches);
             System.out.println("Cost " + formatter.format(cost) + "\n\n");
